@@ -1,0 +1,125 @@
+#{extends 'main.html' /}
+#{set title:'Sql Injection' /}
+
+
+
+#{set 'moreScripts'}
+	<script src="@{'/public/javascripts/index.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+
+#{/set}
+
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Post disponível no: <a href="http://www.blog.ti.lemaf.ufla.br">Blog do LEMAF</a></h3>
+				
+			</div>
+		</div>
+	</div>
+		
+</header>
+	
+<div class="container" id="app">
+	<div class="row">
+	
+		<div class="col-md-6">
+
+			<div class="card card-md">
+
+				<div class="card-title">
+					<h4>Seguro contra SQL Injection</h4> 
+				</div>
+				<div class="card-body">
+					<img src="@{'/public/images/lock-150.png'}" alt="" class="img-responsive center-img">
+					<h3 class="text-center">Login</h3>
+					<div class="form-group">
+						<span for="#">Usuário:</span>
+						<input type="text" class="form-control" v-model="nomeUsuarioSeguro" placeholder="Digite o nome de seu usuário">
+					</div>
+					
+					<div class="form-group">
+						<span for="#">Senha:</span>
+						<input type="text" class="form-control" v-model="senhaUsuarioSeguro" placeholder="Digite sua senha">
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							
+							<button class="btn btn-primary pull-right" v-on:click="pesquisarSeguro()">
+								<span class="glyphicon glyphicon-log-in"></span>
+								<span>Entrar</span>
+							</button>
+						</div>
+					</div>
+
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="col-md-6">
+
+			<div class="card card-md">
+
+				<div class="card-title">
+					<h4>Vulnerável a SQL Injection</h4> 
+				</div>
+				<div class="card-body">
+					<img src="@{'/public/images/lock-open-icon-150.png'}" alt="" class="img-responsive center-img">
+					<h3 class="text-center">Login</h3>
+					<div class="form-group">
+						<span for="#">Usuário:</span>
+						<input type="text" class="form-control" v-model="nomeUsuarioVulneravel" placeholder="Digite o nome de seu usuário">
+
+					</div>
+					<div class="form-group">
+						<span for="#">Senha:</span>
+						<input type="text" class="form-control" v-model="senhaUsuarioVulneravel" placeholder="Digite sua senha">
+
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							
+							<button class="btn btn-primary pull-right" v-on:click="pesquisarVulnaravel()">
+								<span class="glyphicon glyphicon-log-in"></span>
+								<span>Entrar</span>
+							</button>
+						</div>
+					</div>
+
+							
+				</div>
+				
+			</div>
+		</div>
+	
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card card-md">
+				<div class="card-title">
+					<h4>Dados do usuário logado</h4>
+				</div>
+				<div class="card-body">
+					<p class="empty-result" v-if="!logou">Faça seu login para exibição dos dados.</p>
+					<table class="table" v-if="usuarios.length > 0">
+						<thead>
+							<th>Usuário</th>
+							<th>Senha</th>
+						</thead>
+						<tbody>
+							<tr v-for="usuario in usuarios">
+								<td>{{usuario.nome}}</td>
+								<td>{{usuario.senha}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
