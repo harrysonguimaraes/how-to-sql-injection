@@ -8,9 +8,9 @@ import play.mvc.Controller;
 
 public class Usuarios extends Controller {
 	
-    protected static void returnIfNull(Object model, Object ... models) {
+    protected static void returnIfNull(String model, String ... models) {
 
-    	if (model == null) {
+    	if (model == null || model.isEmpty()) {
     		error("Houve um erro ao informar os dados.");
         }
         
@@ -18,7 +18,7 @@ public class Usuarios extends Controller {
          
             for (int i = 0; i < models.length; i++) {
             
-                if (models[i] == null) {
+                if (models[i] == null || models[i].isEmpty()) {
             			error("Houve um erro ao informar os dados.");
                         return;
                 }

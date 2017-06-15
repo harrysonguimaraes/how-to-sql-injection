@@ -117,3 +117,53 @@ textarea.form-control {
 	box-shadow: none;
 	-webkit-box-shadow: none;
 }
+
+footer {
+	height: 30px;
+}
+
+.alert {
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+  border: none;
+  margin-bottom: 15px;
+  padding: 14px 23px;
+  position: fixed;
+  z-index: 5;
+  right: 40px;
+  width: 300px;
+}
+.alert.in {
+  transition: 0.3s;
+}
+.alert.out {
+  transition: 0.3s;
+  opacity: 0;
+  margin-top: -10px;
+  -webkit-transform: scale(0.9) perspective(400px) rotate3d(1, 0, 0, -45deg);
+  transform: scale(0.9) perspective(400px) rotate3d(1, 0, 0, -45deg);
+}
+.alert .close,
+.modal .alert .close {
+  font-size: 34px;
+  text-shadow: none;
+  color: #fff;
+  margin-top: -8px;
+  font-weight: 400;
+  outline: 0;
+  opacity: 0.4;
+  transition: 0.3s;
+}
+.alert .close:hover,
+.modal .alert .close:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.alert-success {
+  background-color: #6C6EA0;
+}
+.alert-danger {
+  background-color: #ff1053;
+}

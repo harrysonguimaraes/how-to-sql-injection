@@ -45,10 +45,14 @@ public class Usuario extends GenericModel {
 	
 	public static List<Usuario> listVulneravel(String usuario, String senha) {
 		
-		String jpql = "SELECT u FROM " + Usuario.class.getCanonicalName() + " u" +
-				" WHERE u.nome = '" + usuario + "' and u.senha = '" + senha + "'";
+//		String jpql = "SELECT u FROM " + Usuario.class.getCanonicalName() + " u" +
+//				" WHERE u.nome = '" + usuario + "' and u.senha = '" + senha + "'";
+//		
+//		Query query = JPA.em().createQuery(jpql, Usuario.class);
 		
-		Query query = JPA.em().createQuery(jpql, Usuario.class);
+		String sql = "SELECT * FROM portal.usuario u WHERE u.nome = '" + usuario + "' and u.senha = '" + senha + "'";
+		
+		Query query = JPA.em().createNativeQuery(sql, Usuario.class);
 		
 		return query.getResultList();
 
