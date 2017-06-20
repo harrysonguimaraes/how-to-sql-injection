@@ -3,3 +3,4 @@
 eclipse/**
 tmp/**
 .settings/**
+application_test.conf

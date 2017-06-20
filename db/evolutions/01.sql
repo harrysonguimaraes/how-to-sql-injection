@@ -40,3 +40,15 @@ INSERT INTO portal.usuario(nome, senha) VALUES ('Frank Underwood', '2016-2020');
 
 INSERT INTO portal.perfil(nome, codigo) VALUES('Externo','EXTERNO');
 INSERT INTO portal.perfil(nome, codigo) VALUES('Administrador','ADMIN');
+
+# --- !Downs
+
+DROP SCHEMA portal CASCADE;
+
+
+
+
+
+
+
+
